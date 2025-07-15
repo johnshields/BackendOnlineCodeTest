@@ -20,20 +20,19 @@ You may make any improvements you see fit, for example:
  * Made class static to prevent instantiation.
  * Simplified types with "var".
  * Renamed qry to builder for readability.
+ * Switched to string interpolation instead of string.Format.
+ * Removed redundant if statement.
  */
 public static class StringFormatter
 {
     //Code to improve
     public static string ToCommaSeparatedList(string[] items, string quote)
     {
-        var builder = new StringBuilder(string.Format("{0}{1}{0}", quote, items[0]));
+        var builder = new StringBuilder($"{quote}{items[0]}{quote}");
 
-        if (items.Length > 1)
+        for (var i = 1; i < items.Length; i++)
         {
-            for (var i = 1; i < items.Length; i++)
-            {
-                builder.Append(string.Format(", {0}{1}{0}", quote, items[i]));
-            }
+            builder.Append($", {quote}{items[i]}{quote}");
         }
 
         return builder.ToString();
