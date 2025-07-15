@@ -22,12 +22,19 @@ You may make any improvements you see fit, for example:
  * Renamed qry to builder for readability.
  * Switched to string interpolation instead of string.Format.
  * Removed redundant if statement.
+ * Added null/empty guard clause for param.
  */
 public static class StringFormatter
 {
     //Code to improve
-    public static string ToCommaSeparatedList(string[] items, string quote)
+    public static string ToCommaSeparatedList(string[]? items, string quote)
     {
+        if (items is null || items.Length == 0)
+        {
+            Console.WriteLine("Null or empty array was passed.");
+            return string.Empty;
+        }
+
         var builder = new StringBuilder($"{quote}{items[0]}{quote}");
 
         for (var i = 1; i < items.Length; i++)
