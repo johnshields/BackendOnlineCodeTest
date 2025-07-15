@@ -4,7 +4,7 @@ namespace BackendOnlineCodeTest;
 
 public static class StringFormatter
 {
-    // Simpler and more readable approach for small collections where performance impact is negligible by LINQ.
+    // Better readable and simpler approach for smaller collections where performance impact is negligible by LINQ.
     public static string ToCommaSeparatedListLinq(string[] items)
     {
         if (items is null || items.Length == 0)
@@ -16,7 +16,7 @@ public static class StringFormatter
         return string.Join(",", items.Select(i => $"\"{i}\""));
     }
     
-    // Optimal approach that uses manual iteration with StringBuilder to avoid LINQ allocation overhead.
+    // For larger scale collections to use CommaSeparatedStringBuilder helper to avoid LINQ allocation overhead.
     public static string ToCommaSeparatedListOptimal(string[] items)
     {
         if (items is null || items.Length == 0)
@@ -30,7 +30,6 @@ public static class StringFormatter
         return stringBuilder.ToString();
     }
     
-    // Helper method that appends quoted items as a comma-separated list using StringBuilder.
     private static StringBuilder CommaSeparatedStringBuilder(string[] items)
     {
         var stringBuilder = new StringBuilder();
