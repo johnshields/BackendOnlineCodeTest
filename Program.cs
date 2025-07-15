@@ -1,9 +1,11 @@
-﻿namespace PointsBet_Backend_Online_Code_Test;
+﻿namespace BackendOnlineCodeTest;
 
-class Program
+public static class Program
 {
-    static void Main()
+    public static void Main()
     {
-        Console.WriteLine("init");
+        string[] items = ["item1", "item2", "item3"];
+        var results = StringFormatter.ToCommaSeparatedList(items, "\"");
+        Console.WriteLine(results);
     }
 }

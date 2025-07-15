@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace PointsBet_Backend_Online_Code_Test
+namespace BackendOnlineCodeTest
 {
 
     /*
@@ -12,11 +12,11 @@ namespace PointsBet_Backend_Online_Code_Test
       - Fixing typos
       - Any other light-weight optimisation
     */
-    public class StringFormatter
+    public static class StringFormatter
     {
 
         //Code to improve
-        public static string ToCommaSepatatedList(string[] items, string quote)
+        public static string ToCommaSeparatedList(string[] items, string quote)
         {
             StringBuilder qry = new StringBuilder(string.Format("{0}{1}{0}", quote, items[0]));
 
