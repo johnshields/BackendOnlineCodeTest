@@ -23,6 +23,8 @@ You may make any improvements you see fit, for example:
  * Switched to string interpolation instead of string.Format.
  * Removed redundant if statement.
  * Added null/empty guard clause for param.
+ * Added nullifier (?) to string[] param.
+ * Converted for loop to foreach to improve readability.
  */
 public static class StringFormatter
 {
@@ -37,10 +39,10 @@ public static class StringFormatter
 
         var builder = new StringBuilder($"{quote}{items[0]}{quote}");
 
-        for (var i = 1; i < items.Length; i++)
-        {
-            builder.Append($", {quote}{items[i]}{quote}");
-        }
+        // skip first item as it is already appended above,
+        // and the rest follow with a comma and quotes.
+        foreach (var item in items.Skip(1))
+            builder.Append($", {quote}{item}{quote}");
 
         return builder.ToString();
     }
