@@ -13,7 +13,7 @@ public static class StringFormatter
             return string.Empty;
         }
 
-        return string.Join(",", items.Select(i => $"'{i}'"));
+        return string.Join(",", items.Select(i => $"\"{i}\""));
     }
     
     // Optimal approach that uses manual iteration with StringBuilder to avoid LINQ allocation overhead.
@@ -42,7 +42,7 @@ public static class StringFormatter
                 stringBuilder.Append(',');
             }
 
-            stringBuilder.Append($"'{item}'");
+            stringBuilder.Append($"\"{item}\"");
         }
 
         return stringBuilder;
