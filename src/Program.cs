@@ -6,10 +6,8 @@ public static class Program
     {
         // basic input test for StringFormatter
         string[] items = ["item1", "item2", "item3"];
-        var listLinq = StringFormatter.ToCommaSeparatedListLinq(items);
-        var listOptimal = StringFormatter.ToCommaSeparatedListOptimal(items);
+        var itemList = StringFormatter.ToCommaSeparatedList(items);
         
-        Console.WriteLine($"LINQ: {listLinq}");
-        Console.WriteLine($"Optimal: {listOptimal}");
+        Console.WriteLine(itemList);
     }
 }
